@@ -438,3 +438,14 @@ h1 {
   color: transparent;
 }
 .bar i { background: linear-gradient(90deg, var(--color), var(--color2)); }
+:root.theme-light {
+  color-scheme: light;
+  --bg: #e6ecf3;
+  --bg-aside: #cfd9e5;
+  --text: #1e293b;
+  --color: #2563eb;
+  --color2: #7c3aed;
+  --btb: #2563eb;
+  --btnbg: #1d4ed8;
+  --btn-text: #ffffff;
+}
