@@ -313,3 +313,60 @@ html { scroll-behavior: smooth; scroll-padding-top: 70px; }
   width: auto;
   z-index: 200;
 }
+main > aside {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100vh;
+  overflow-y: auto;
+  justify-content: flex-start;
+  gap: 24px;
+  font-family: "Noto Sans", sans-serif;
+  background: linear-gradient(180deg, var(--bg-aside), color-mix(in srgb, var(--bg-aside) 70%, var(--color)));
+}
+main > aside li { font-family: inherit; }
+main > aside > .contact-info { margin-top: 0; }
+
+main > aside ul { list-style: none; padding: 0; margin: 0; }
+main > aside li { padding: 4px 0; }
+
+main > aside h3 {
+  font-size: .85rem;
+  letter-spacing: .15em;
+  color: var(--color);
+  border-bottom: 2px solid var(--color);
+  padding-bottom: 6px;
+  margin: 0 0 10px;
+}
+
+figure.profile { border: 4px solid var(--color); }
+.name-and-title h1 { font-size: 1.5rem; margin: 16px 0 6px; }
+.name-and-title span { display: block; font-size: .9rem; }
+
+.contact-info a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text);
+  transition: background .3s, transform .3s;
+}
+.contact-info a:hover {
+  background: color-mix(in srgb, var(--color) 25%, transparent);
+  transform: translateX(4px);
+}
+.contact-info i { color: var(--color); width: 18px; text-align: center; }
+
+.chips ul { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li {
+  border: 1px solid var(--color);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: .85rem;
+}
+
+@media (max-width: 800px) {
+  main > aside { position: static; height: auto; }
+}
