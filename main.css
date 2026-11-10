@@ -404,3 +404,37 @@ footer.not-desktop { padding: 10px 20px 24px; }
 .acc-body { padding: 0 16px 14px; animation: fadeUp .3s ease; }
 .acc-body ul { list-style: none; padding: 0; margin: 0; }
 .acc-body li { padding: 4px 0; }
+:root {
+  color-scheme: dark;
+  --bg: #0f172a;
+  --bg-aside: #1e293b;
+  --text: #e2e8f0;
+  --color: #38bdf8;
+  --color2: #818cf8;
+  --btb: #38bdf8;
+  --btnbg: #7dd3fc;
+  --btn-text: #0f172a;
+}
+:root.theme-light {
+  color-scheme: light;
+  --bg: #f8fafc;
+  --bg-aside: #e2e8f0;
+  --text: #1e293b;
+  --color: #2563eb;
+  --color2: #7c3aed;
+  --btb: #2563eb;
+  --btnbg: #1d4ed8;
+  --btn-text: #ffffff;
+}
+
+button { color: var(--btn-text); }
+.menu a.active { color: var(--btn-text); }
+
+h1 {
+  background: linear-gradient(90deg, var(--color), var(--color2), var(--color));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.bar i { background: linear-gradient(90deg, var(--color), var(--color2)); }
