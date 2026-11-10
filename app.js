@@ -157,12 +157,15 @@ const skillObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 skillObs.observe(document.querySelector(".skills"));
 
-// menu : surligne la section visible
-const links = document.querySelectorAll(".menu a");
-const spy = new IntersectionObserver((entries) => {
-  entries.forEach((e) => {
-    if (e.isIntersecting)
-      links.forEach((l) => l.classList.toggle("active", l.getAttribute("href") === "#" + e.target.id));
-  });
-}, { rootMargin: "-40% 0px -55% 0px" });
-links.forEach((l) => spy.observe(document.querySelector(l.getAttribute("href"))));
+const tabs = document.querySelectorAll(".menu a");
+const panels = document.querySelectorAll(".panel");
+
+function showTab(id) {
+  panels.forEach((p) => (p.hidden = p.id !== id));
+  tabs.forEach((t) => t.classList.toggle("active", t.getAttribute("href") === "#" + id));
+}
+tabs.forEach((t) => t.addEventListener("click", (e) => {
+  e.preventDefault();
+  showTab(t.getAttribute("href").slice(1));
+}));
+showTab("bio");

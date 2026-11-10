@@ -298,3 +298,10 @@ html { scroll-behavior: smooth; scroll-padding-top: 70px; }
 .bar { height: 10px; background: var(--bg-aside); border-radius: 10px; overflow: hidden; margin-top: 6px; }
 .bar i { display: block; height: 100%; width: 0; border-radius: 10px;
   background: linear-gradient(90deg, var(--color), #ff8a00); transition: width 1.2s ease; }
+  
+.panel[hidden] { display: none; }
+.panel { animation: fadeUp .4s ease both; }
+
+@media print {
+  .panel[hidden] { display: block !important; }
+}
