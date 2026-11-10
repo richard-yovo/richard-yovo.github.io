@@ -161,11 +161,20 @@ const tabs = document.querySelectorAll(".menu a");
 const panels = document.querySelectorAll(".panel");
 
 function showTab(id) {
+  const target = document.getElementById(id);
+  if (!target || !target.classList.contains("panel")) id = "bio";
   panels.forEach((p) => (p.hidden = p.id !== id));
   tabs.forEach((t) => t.classList.toggle("active", t.getAttribute("href") === "#" + id));
 }
-tabs.forEach((t) => t.addEventListener("click", (e) => {
-  e.preventDefault();
-  showTab(t.getAttribute("href").slice(1));
-}));
-showTab("bio");
+
+tabs.forEach((t) =>
+  t.addEventListener("click", (e) => {
+    e.preventDefault();
+    const id = t.getAttribute("href").slice(1);
+    history.pushState(null, "", "#" + id);
+    showTab(id);
+  })
+);
+
+addEventListener("popstate", () => showTab(location.hash.slice(1)));
+showTab(location.hash.slice(1) || "bio");
