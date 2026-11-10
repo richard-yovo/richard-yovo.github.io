@@ -306,3 +306,10 @@ html { scroll-behavior: smooth; scroll-padding-top: 70px; }
   .panel[hidden] { display: block !important; }
 }
 .panel { max-width: 700px; }
+.optionsbar {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  width: auto;
+  z-index: 200;
+}
