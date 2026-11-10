@@ -29,7 +29,7 @@ const translations ={
         es:"Actuellement: 6e Secondaire",
         dsp:"DISPONIBILITéS",
         dyp:"Pour voir mes disponibilités,veuillez cliquez sur le button (DSP)",
-        ne:"Née le 02 Avril 2008",
+        ne:"Né le 02 Avril 2008",
         sta:"Stage de une semaine à ArkDevel(Informatique)Mars-2026",
         apm:"Jeune motivé, sérieux et polyvalent, avec une expérience en vente en alimentation générale au Togo. J’ai appris à accueillir et conseiller les clients, gérer la vente de produits, assurer la mise en rayon, le rangement et le réapprovisionnement. Cette expérience m’a permis de développer un bon sens du contact, une bonne organisation et la capacité de travailler rapidement, même en période de forte affluence. Je suis également capable de travailler dans le secteur de la restauration en effectuant différentes tâches comme l’aide en cuisine, la plonge, le nettoyage et l’entretien du matériel. Dynamique, ponctuel et discipliné, je m’adapte facilement et je suis prêt à apprendre pour évoluer dans un environnement professionnel en Belgique.",
        
