@@ -130,3 +130,10 @@ function applyTheme(theme) {
         applyLang(next)
     })
 }) ()
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll("header, .experience, .education, .disponibilité, .Autres")
+  .forEach((el) => { el.classList.add("reveal"); observer.observe(el); });

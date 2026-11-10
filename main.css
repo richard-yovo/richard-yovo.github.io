@@ -244,3 +244,12 @@ footer {
   width: 100vw;
   padding:  5px 20px;
 }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+@media print {
+  :root { --bg: white; --bg-aside: #eee; --text: black; --color: #4b0ad7; }
+  .optionsbar, button { display: none; }
+  main { width: 100%; }
+  main > aside { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
