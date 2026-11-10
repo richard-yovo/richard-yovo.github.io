@@ -253,14 +253,3 @@ footer {
   main { width: 100%; }
   main > aside { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
 }
-#progress { position: fixed; top: 0; left: 0; height: 4px; width: 0; background: var(--color); z-index: 100; }
-#top-btn { position: fixed; right: 20px; bottom: 20px; z-index: 100; opacity: 0; pointer-events: none; transition: opacity .3s; }
-#top-btn.show { opacity: 1; pointer-events: auto; }
-#glow { position: fixed; width: 300px; height: 300px; border-radius: 50%; pointer-events: none; z-index: 0;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, color-mix(in srgb, var(--color) 18%, transparent), transparent 70%); }
-figure.profile { transition: transform .15s ease-out; }
-.experience { padding: 10px; border-radius: 12px; transition: transform .3s, box-shadow .3s; }
-.experience.visible:hover { transform: translateY(-4px);
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--color) 40%, transparent); }
-@media (hover: none) { #glow { display: none; } }
