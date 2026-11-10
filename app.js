@@ -32,7 +32,8 @@ const translations ={
         ne:"Né le 02 Avril 2008",
         sta:"Stage de une semaine à ArkDevel(Informatique)Mars-2026",
         apm:"Jeune motivé, sérieux et polyvalent, avec une expérience en vente en alimentation générale au Togo. J’ai appris à accueillir et conseiller les clients, gérer la vente de produits, assurer la mise en rayon, le rangement et le réapprovisionnement. Cette expérience m’a permis de développer un bon sens du contact, une bonne organisation et la capacité de travailler rapidement, même en période de forte affluence. Je suis également capable de travailler dans le secteur de la restauration en effectuant différentes tâches comme l’aide en cuisine, la plonge, le nettoyage et l’entretien du matériel. Dynamique, ponctuel et discipliné, je m’adapte facilement et je suis prêt à apprendre pour évoluer dans un environnement professionnel en Belgique.",
-       
+       skt:"NIVEAUX", sk1:"Accueil et conseil client", sk2:"Vente et promotion", sk3:"Gestion de la caisse", sk4:"Travail en équipe",
+m1:"Bio", m2:"Expériences", m3:"Études", m4:"Dispos", m5:"À propos",
 
 
 
@@ -71,7 +72,8 @@ const translations ={
         ne:"Born April 2, 2008",
         sta:"One-week internship at ArkDevel (Computer Science) March-2026",
         apm:"Young motivated, serious and versatile person, with experience in general food sales in Togo. I learned to welcome and advise customers, manage the sale of products, ensure shelving, storage and replenishment. This experience allowed me to develop good communication skills, good organization and the ability to work quickly, even in busy periods. I am also able to work in the catering sector carrying out different tasks such as helping in the kitchen, washing, cleaning and maintaining equipment. Dynamic, punctual and disciplined, I adapt easily and I am ready to learn to evolve in a professional environment in Belgium.",
-    
+        skt:"LEVELS", sk1:"Customer service", sk2:"Sales and promotion", sk3:"Cash handling", sk4:"Teamwork",
+m1:"Bio", m2:"Experience", m3:"Education", m4:"Availability", m5:"About",
 
 
 
@@ -145,3 +147,22 @@ let n = 0;
   title.textContent = fullName.slice(0, ++n);
   if (n < fullName.length) setTimeout(type, 90);
 })();
+// barres de niveaux
+const skillObs = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (!e.isIntersecting) return;
+    e.target.querySelectorAll(".bar i").forEach((b) => (b.style.width = b.dataset.level + "%"));
+    skillObs.unobserve(e.target);
+  });
+}, { threshold: 0.3 });
+skillObs.observe(document.querySelector(".skills"));
+
+// menu : surligne la section visible
+const links = document.querySelectorAll(".menu a");
+const spy = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting)
+      links.forEach((l) => l.classList.toggle("active", l.getAttribute("href") === "#" + e.target.id));
+  });
+}, { rootMargin: "-40% 0px -55% 0px" });
+links.forEach((l) => spy.observe(document.querySelector(l.getAttribute("href"))));
