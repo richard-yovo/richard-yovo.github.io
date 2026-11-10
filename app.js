@@ -12,6 +12,7 @@ const translations ={
         at:"A propos de moi",
         cls:"6e SECONDAIRE",
         qurt:" Rue de dave 462",
+        qrt:"MON QR CODE", qrp:"Scanne pour ouvrir mon CV",
         ct:"CENTRE D'INTERET",
         sf:"Sport : Football",
         mc:"Musique et culture",
@@ -50,6 +51,7 @@ m1:"Bio", m2:"Expériences", m3:"Études", m4:"Dispos", m5:"À propos",
         pr:"profile",
         ang:"English:A2",
         m6:"Projects", m7:"Contact", pj:"PROJECTS", ctt:"CONTACT ME",
+        qrt:"MY QR CODE", qrp:"Scan to open my CV",
         at:"About me",
         crd:"CONTACT DETAILS",
         cls:"SECONDARY 6",
@@ -197,3 +199,34 @@ form.addEventListener("submit", async (e) => {
     msg.textContent = "Pas de connexion. Réessaie plus tard.";
   }
 });
+// QR code (se met à jour tout seul si l'URL change)
+new QRCode(document.querySelector("#qrcode"), {
+  text: location.origin + location.pathname,
+  width: 160,
+  height: 160,
+  colorDark: "#000000",
+  colorLight: "#ffffff",
+  correctLevel: QRCode.CorrectLevel.M,
+});
+
+// Voyant de disponibilité (heure de Belgique)
+function isAvailable() {
+  const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Brussels" }));
+  const d = now.getDay(), h = now.getHours();
+  if (d === 0 || d === 6) return true;  // week-end
+  if (d === 3) return h >= 14;          // mercredi dès 14h
+  return h >= 18;                       // autres jours dès 18h
+}
+function updateStatus() {
+  const en = document.documentElement.lang === "en";
+  const ok = isAvailable();
+  document.querySelectorAll(".status").forEach((el) => {
+    el.classList.toggle("on", ok);
+    el.textContent = ok
+      ? (en ? "Available now" : "Disponible maintenant")
+      : (en ? "Currently unavailable" : "Indisponible pour le moment");
+  });
+}
+updateStatus();
+setInterval(updateStatus, 60000);
+document.querySelector("#btn-lang").addEventListener("click", updateStatus);
