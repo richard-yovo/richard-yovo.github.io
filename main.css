@@ -370,3 +370,37 @@ figure.profile { border: 4px solid var(--color); }
 @media (max-width: 800px) {
   main > aside { position: static; height: auto; }
 }
+footer.not-desktop { padding: 10px 20px 24px; }
+
+.acc {
+  border: 1px solid var(--color);
+  border-radius: 12px;
+  margin: 10px 0;
+  overflow: hidden;
+  transition: box-shadow .3s;
+}
+.acc[open] { box-shadow: 0 4px 18px color-mix(in srgb, var(--color) 35%, transparent); }
+
+.acc summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  list-style: none;
+}
+.acc summary::-webkit-details-marker { display: none; }
+.acc summary i { color: var(--color); }
+.acc summary::after {
+  content: "+";
+  margin-left: auto;
+  font-size: 1.5rem;
+  color: var(--color);
+  transition: transform .3s;
+}
+.acc[open] summary::after { transform: rotate(45deg); }
+
+.acc-body { padding: 0 16px 14px; animation: fadeUp .3s ease; }
+.acc-body ul { list-style: none; padding: 0; margin: 0; }
+.acc-body li { padding: 4px 0; }
