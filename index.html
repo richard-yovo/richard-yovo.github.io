@@ -34,6 +34,7 @@
       <span class="job" data-i18n="jobTitle">Etudiant</span>
       <span data-i18n="ne">/ Né le 02 Avril 2008</span>
     </div>
+       <p class="status"></p>
   </section>
 
   <section class="contact-info not-mobile">
@@ -138,6 +139,7 @@
 
   <section id="dispos" class="panel" hidden>
     <h2 data-i18n="dsp">DISPONIBILITéS</h2>
+    <p class="status"></p>
     <p data-i18n="dyp">Pour voir mes disponibilités,veuillez cliquez sur le button (DSP)</p>
     <button onclick="alert('Je suis disponible tous les WEEK-ENDS,vacances et congés scolaires et en semaine à partir de 18h sauf les mercredis à partir de 14h ')">DSP</button>
   </section>
@@ -179,6 +181,11 @@
     <button type="submit" id="send-btn">Envoyer</button>
     <p id="form-msg" role="status"></p>
   </form>
+  <div class="qr-box">
+    <h3 data-i18n="qrt">MON QR CODE</h3>
+    <div id="qrcode"></div>
+    <p data-i18n="qrp">Scanne pour ouvrir mon CV</p>
+  </div>
 </section>
 
 </div>
@@ -225,7 +232,7 @@
   </details>
 </footer>
     <script src="https://unpkg.com/lucide@0.469.0"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
