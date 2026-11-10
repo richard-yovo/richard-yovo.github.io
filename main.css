@@ -449,3 +449,32 @@ h1 {
   --btnbg: #1d4ed8;
   --btn-text: #ffffff;
 }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.card {
+  border: 1px solid var(--color);
+  border-radius: 14px;
+  padding: 16px;
+  transition: transform .3s, box-shadow .3s;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px color-mix(in srgb, var(--color) 35%, transparent); }
+.card h3 { margin-top: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+.tags span { background: var(--color); color: var(--btn-text); border-radius: 20px; padding: 2px 10px; font-size: .75rem; }
+
+#contact-form { display: grid; gap: 14px; }
+#contact-form label { display: grid; gap: 6px; font-weight: bold; }
+#contact-form input, #contact-form textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--color);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+}
+#contact-form input:focus, #contact-form textarea:focus {
+  outline: 2px solid var(--color);
+  outline-offset: 2px;
+}
+#contact-form button { justify-self: start; padding: 10px 24px; }
+
+@media print { #contact { display: none !important; } }

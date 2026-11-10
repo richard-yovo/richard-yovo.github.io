@@ -3,6 +3,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <title>CV DE RICHARD</title>
+    <meta property="og:title" content="Richard Yovo – CV en ligne">
+<meta property="og:description" content="Étudiant motivé, polyvalent. Découvre mon CV.">
+<meta property="og:image" content="https://yovorichard3-lgtm.github.io/1760983154987.jpg">
+<meta property="og:url" content="https://yovorichard3-lgtm.github.io/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
     <link rel="icon" type="image/png" href="favicon.png"/>
 
     <link href="main.css" rel="stylesheet" />
@@ -77,6 +83,8 @@
     <a href="#etudes" data-i18n="m3">Études</a>
     <a href="#dispos" data-i18n="m4">Dispos</a>
     <a href="#apropos" data-i18n="m5">À propos</a>
+    <a href="#projets" data-i18n="m6">Projets</a>
+<a href="#contact" data-i18n="m7">Contact</a>
   </nav>
 
   <section id="bio" class="panel">
@@ -138,6 +146,39 @@
   <section id="apropos" class="panel" hidden>
     <h2 data-i18n="at">A propos de moi</h2>
     <p data-i18n="apm">Jeune motivé, sérieux et polyvalent, avec une expérience en vente en alimentation générale au Togo. J’ai appris à accueillir et conseiller les clients, gérer la vente de produits, assurer la mise en rayon, le rangement et le réapprovisionnement. Cette expérience m’a permis de développer un bon sens du contact, une bonne organisation et la capacité de travailler rapidement, même en période de forte affluence. Je suis également capable de travailler dans le secteur de la restauration en effectuant différentes tâches comme l’aide en cuisine, la plonge, le nettoyage et l’entretien du matériel. Dynamique, ponctuel et discipliné, je m’adapte facilement et je suis prêt à apprendre pour évoluer dans un environnement professionnel en Belgique.</p>
+    <section id="projets" class="panel" hidden>
+  <h2 data-i18n="pj">PROJETS</h2>
+  <div class="cards">
+    <article class="card">
+      <h3>Mon CV en ligne</h3>
+      <p>Site en HTML, CSS et JavaScript : mode clair/sombre, deux langues, onglets, animations.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+      <a href="https://github.com/yovorichard3-lgtm" target="_blank" rel="noopener">Voir sur GitHub →</a>
+    </article>
+    <article class="card">
+      <h3>Borne de commande</h3>
+      <p>Projet d'entraînement : reproduire une borne de commande avec écrans cuisine.</p>
+      <div class="tags"><span>Projet perso</span></div>
+    </article>
+    <article class="card">
+      <h3>Exercices en C</h3>
+      <p>Programmes d'apprentissage : conditions, boucles, switch.</p>
+      <div class="tags"><span>C</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="contact" class="panel" hidden>
+  <h2 data-i18n="ctt">ME CONTACTER</h2>
+  <form id="contact-form" action="https://formspree.io/f/mnpdapbr" method="POST">
+    <label>Nom <input type="text" name="name" required></label>
+    <label>Email <input type="email" name="email" required></label>
+    <label>Message <textarea name="message" rows="5" required></textarea></label>
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+    <button type="submit" id="send-btn">Envoyer</button>
+    <p id="form-msg" role="status"></p>
+  </form>
+</section>
   </section>
 </div>
     </main>

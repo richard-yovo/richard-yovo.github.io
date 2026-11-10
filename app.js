@@ -32,6 +32,7 @@ const translations ={
         ne:"Né le 02 Avril 2008",
         sta:"Stage de une semaine à ArkDevel(Informatique)Mars-2026",
         apm:"Jeune motivé, sérieux et polyvalent, avec une expérience en vente en alimentation générale au Togo. J’ai appris à accueillir et conseiller les clients, gérer la vente de produits, assurer la mise en rayon, le rangement et le réapprovisionnement. Cette expérience m’a permis de développer un bon sens du contact, une bonne organisation et la capacité de travailler rapidement, même en période de forte affluence. Je suis également capable de travailler dans le secteur de la restauration en effectuant différentes tâches comme l’aide en cuisine, la plonge, le nettoyage et l’entretien du matériel. Dynamique, ponctuel et discipliné, je m’adapte facilement et je suis prêt à apprendre pour évoluer dans un environnement professionnel en Belgique.",
+        m6:"Projets", m7:"Contact", pj:"PROJETS", ctt:"ME CONTACTER",
        skt:"NIVEAUX", sk1:"Accueil et conseil client", sk2:"Vente et promotion", sk3:"Gestion de la caisse", sk4:"Travail en équipe",
 m1:"Bio", m2:"Expériences", m3:"Études", m4:"Dispos", m5:"À propos",
 
@@ -48,6 +49,7 @@ m1:"Bio", m2:"Expériences", m3:"Études", m4:"Dispos", m5:"À propos",
         fr:"French:fluent",
         pr:"profile",
         ang:"English:A2",
+        m6:"Projects", m7:"Contact", pj:"PROJECTS", ctt:"CONTACT ME",
         at:"About me",
         crd:"CONTACT DETAILS",
         cls:"SECONDARY 6",
@@ -178,3 +180,20 @@ tabs.forEach((t) =>
 
 addEventListener("popstate", () => showTab(location.hash.slice(1)));
 showTab(location.hash.slice(1) || "bio");
+const form = document.querySelector("#contact-form");
+const msg = document.querySelector("#form-msg");
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  msg.textContent = "Envoi en cours…";
+  try {
+    const res = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    });
+    if (res.ok) { msg.textContent = "Merci ! Ton message est bien envoyé."; form.reset(); }
+    else msg.textContent = "Oups, l'envoi a échoué. Réessaie plus tard.";
+  } catch {
+    msg.textContent = "Pas de connexion. Réessaie plus tard.";
+  }
+});
