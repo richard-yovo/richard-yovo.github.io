@@ -253,3 +253,35 @@ footer {
   main { width: 100%; }
   main > aside { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
 }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } }
+@keyframes slideIn { from { opacity: 0; transform: translateX(-40px); } }
+@keyframes shine { to { background-position: 200% center; } }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color) 60%, transparent); }
+  70%  { box-shadow: 0 0 0 20px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+main > aside { animation: slideIn .8s ease both; }
+main > .content { animation: fadeUp .8s .2s ease both; }
+
+h1 {
+  background: linear-gradient(90deg, var(--color), #ff8a00, var(--color));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 4s linear infinite;
+}
+h1::after { content: "|"; animation: blink 1s steps(1) infinite; }
+
+figure.profile { animation: pulse 2.5s infinite; }
+
+button:hover svg { transform: rotate(40deg); }
+button svg { transition: transform .3s; }
+button:active { transform: scale(.9); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

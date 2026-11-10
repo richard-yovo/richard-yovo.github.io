@@ -137,4 +137,11 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 document.querySelectorAll("header, .experience, .education, .disponibilité, .Autres")
   .forEach((el) => { el.classList.add("reveal"); observer.observe(el); });
-  
+  const title = document.querySelector(".name-and-title h1");
+const fullName = title.textContent.trim();
+title.textContent = "";
+let n = 0;
+(function type() {
+  title.textContent = fullName.slice(0, ++n);
+  if (n < fullName.length) setTimeout(type, 90);
+})();
